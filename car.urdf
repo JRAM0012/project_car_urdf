@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<robot name="robot_name">
+
+  <!-- 
+
+    car_body is directly connected to back wheels
+    but,
+      car_body is connected to a intermediate joint then that joint is connected to the front wheels
+      this is so that the front wheels can revolute with that intermediate joint and,
+      then the intermediate joint can be used to turn the wheel left and right
+
+  -->
+
+  <link name="car_body">
+      <visual>
+        <geometry>
+          <mesh filename="/home/jram/car_urdf/assets/car.obj"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- front wheels -->
+
+      <!-- front left wheel -->
+        
+        <link name="front_wheel_left_turn">
+          <visual>
+            <geometry>
+              <box size="0.3 0.3 0.3"/>
+              <!-- change this into disk brake so that it looks good and is actually contributing to the working of the urdf car -->
+            </geometry>
+          </visual>
+        </link>
+
+        <joint name="joint_car_to_front_wheel_left_turner" type="revolute">
+          <origin xyz="-0.9 1.02 0.2"/>
+          <parent link="car_body"/>
+          <child link="front_wheel_left_turn"/>
+          <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="wheel_front_left">
+          <visual>
+            <!-- manipulating the origin xyz in the visual block offsets the mesh from the origin  -->
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="/home/jram/car_urdf/assets/wheel.obj" scale="1.0"/>
+            </geometry>
+          </visual>
+        </link>
+
+        <joint name="joint_car_to_left_turner_to_wheel_front_left" type="revolute">
+          <origin xyz="-0.0 0.0 0.0"/>
+          <parent link="front_wheel_left_turn"/>
+          <child link="wheel_front_left"/>
+          <axis xyz="1 0 0"/>
+        </joint>
+
+    <!-- end of front left wheel -->
+
+    <!-- front right wheel -->
+    
+      <link name="front_wheel_right_turn">
+        <visual>
+          <geometry>
+            <box size="0.3 0.3 0.3"/>
+            <!-- change this into disk brake so that it looks good and is actually contributing to the working of the urdf car -->
+          </geometry>
+        </visual>
+      </link>
+
+      <joint name="car_to_front_right_turner" type="revolute">
+        <origin xyz="+0.9 1.02 0.2"/>
+        <parent link="car_body"/>
+        <child link="front_wheel_right_turn"/>
+        <axis xyz="0 0 1"/>
+      </joint>
+
+      <link name="wheel_front_right">
+        <visual>
+          <!-- manipulating the origin xyz in the visual block offsets the mesh from the origin  -->
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 3.14"/>
+          <geometry>
+              <mesh filename="/home/jram/car_urdf/assets/wheel.obj" scale="1.0"/>
+          </geometry>
+        </visual>
+      </link>
+
+      <joint name="joint_car_right_turner_to_wheel_front_right" type="revolute">
+        <origin xyz="+0.0 0.0 0.0"/>
+        <parent link="front_wheel_right_turn"/>
+        <child link="wheel_front_right"/>
+        <axis xyz="1 0 0"/>
+      </joint>
+
+    <!-- end of front left wheel -->
+
+  <!-- end of front wheels -->
+
+  <!-- back wheels -->
+
+    <!-- back wheel left -->
+      <link name="wheel_rear_left">
+        <visual>
+          <geometry>
+            <mesh filename="/home/jram/car_urdf/assets/wheel.obj"/>
+          </geometry>
+        </visual>
+      </link>
+
+      <joint name="joint_car_to_rear_wheel_left" type="revolute">
+        <parent link="car_body"/>
+        <child link="wheel_rear_left"/>
+        <axis xyz="1 0 0"/>
+        <origin xyz="-0.9 -1.05 0.2"/>
+      </joint>
+    <!-- end of back wheel left -->
+
+    <!-- back wheel right -->
+
+    <link name="wheel_rear_right">
+      <visual>
+        <origin rpy="0.0 0.0 3.14"/>
+        <geometry>
+            <mesh filename="/home/jram/car_urdf/assets/wheel.obj"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="joint_car_to_rear_wheel_right" type="revolute">
+      <parent link="car_body"/>
+      <child link="wheel_rear_right"/>
+      <axis xyz="1 0 0"/>
+      <origin xyz="+0.9 -1.05 0.2"/>
+    </joint>
+
+    <!-- end of back wheel right -->
+
+  <!-- back wheel -->
+
+
+</robot>
