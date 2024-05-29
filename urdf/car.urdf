@@ -14,7 +14,7 @@
   <link name="car_body">
       <visual>
         <geometry>
-          <mesh filename="file:///home/jram/project_car_urdf/assets/car.obj"/>
+          <mesh filename="package://project_car_urdf/assets/car.obj"/>
         </geometry>
       </visual>
   </link>
@@ -45,7 +45,7 @@
             <!-- manipulating the origin xyz in the visual block offsets the mesh from the origin  -->
             <origin xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="file:///home/jram/project_car_urdf/assets/wheel.obj"/>
+                <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
             </geometry>
           </visual>
         </link>
@@ -83,7 +83,7 @@
           <!-- manipulating the origin xyz in the visual block offsets the mesh from the origin  -->
           <origin xyz="0.0 0.0 0.0" rpy="0 0 3.14"/>
           <geometry>
-              <mesh filename="file:///home/jram/project_car_urdf/assets/wheel.obj"/>
+              <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
           </geometry>
         </visual>
       </link>
@@ -105,7 +105,7 @@
       <link name="wheel_rear_left">
         <visual>
           <geometry>
-            <mesh filename="file:///home/jram/project_car_urdf/assets/wheel.obj"/>
+            <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
           </geometry>
         </visual>
       </link>
@@ -124,7 +124,7 @@
       <visual>
         <origin rpy="0.0 0.0 3.14"/>
         <geometry>
-            <mesh filename="file:///home/jram/project_car_urdf/assets/wheel.obj"/>
+            <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
         </geometry>
       </visual>
     </link>
