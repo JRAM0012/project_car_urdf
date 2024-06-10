@@ -23,7 +23,7 @@
 
       <!-- front left wheel -->
         
-        <link name="front_wheel_left_turn">
+        <link name="front_wheel_left_turn"> <!-- intermidiate link for turn -->
           <visual>
             <geometry>
               <box size="0.3 0.3 0.3"/>
@@ -40,7 +40,7 @@
           <limit lower="-0.44" upper="0.44" effort="100" velocity="1.0"/>
         </joint>
 
-        <link name="wheel_front_left">
+        <link name="wheel_front_left"> <!-- actual wheel -->
           <visual>
             <!-- manipulating the origin xyz in the visual block offsets the mesh from the origin  -->
             <origin xyz="0.0 0.0 0.0"/>
@@ -61,7 +61,7 @@
 
     <!-- front right wheel -->
     
-      <link name="front_wheel_right_turn">
+      <link name="front_wheel_right_turn"> <!-- intermidiate link for turn -->
         <visual>
           <geometry>
             <box size="0.3 0.3 0.3"/>
@@ -70,7 +70,7 @@
         </visual>
       </link>
 
-      <joint name="car_to_front_right_turner" type="revolute">
+      <joint name="joint_car_to_front_right_turner" type="revolute">
         <origin xyz="+0.9 1.02 0.2"/>
         <parent link="car_body"/>
         <child link="front_wheel_right_turn"/>
@@ -78,7 +78,7 @@
         <axis xyz="0 0 1"/>
       </joint>
 
-      <link name="wheel_front_right">
+      <link name="wheel_front_right"> <!-- actual wheel -->
         <visual>
           <!-- manipulating the origin xyz in the visual block offsets the mesh from the origin  -->
           <origin xyz="0.0 0.0 0.0" rpy="0 0 3.14"/>
