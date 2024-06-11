@@ -1,10 +1,15 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="model"/>
+    <arg name="model" default="lamboorgini" />
     <param name="robot_description" textfile="$(find project_car_urdf)/urdf/car.urdf"/>
     <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find project_car_urdf)/car.rviz"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find gazebo_ros)/worlds/empty.world"/>
+        <!-- <arg name="paused" value="true" /> -->
+    </include>
+    <node name="spawn_car_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-model notackermancarforsure -urdf -f $(find project_car_urdf)/urdf/car.urdf -x 0.1"/>
 
 </launch>
