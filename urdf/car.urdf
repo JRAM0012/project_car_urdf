@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="robot_name">
+<robot name="lamboorgini">
 
   <!-- 
 
@@ -68,9 +68,9 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
           </inertial>
           <collision>
-            <origin xyz="0.0 0.0 0"/>
+            <origin xyz="-0.18 0.0 0" rpy="0.0 1.5707 0.0"/>
             <geometry>
-              <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
+              <cylinder radius="0.46" length="0.3"/>
             </geometry>
           </collision>
           <visual>
@@ -98,11 +98,11 @@
           <mass value="5.0"/>
           <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
-        <visual>
+        <collision>
           <geometry>
             <box size="0.3 0.3 0.3"/>
           </geometry>
-        </visual>
+        </collision>
         <visual>
           <geometry>
             <box size="0.3 0.3 0.3"/>
@@ -127,8 +127,9 @@
           <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <collision>
+          <origin xyz="0.18 0.0 0.0" rpy="0.0 1.5707 0.0"/>
           <geometry>
-            <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
+            <cylinder radius="0.46" length="0.3"/>
           </geometry>
         </collision>
         <visual>
@@ -160,8 +161,9 @@
           <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <collision>
+          <origin xyz="-0.18 0.0 0.0" rpy="0.0 1.5707 0.0"/>
           <geometry>
-            <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
+            <cylinder radius="0.46" length="0.3"/>
           </geometry>
         </collision>
         <visual>
@@ -188,9 +190,9 @@
         <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
       </inertial>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 3.14"/>
+        <origin xyz="0.18 0 0" rpy="0 1.5707 3.14"/>
         <geometry>
-          <mesh filename="package://project_car_urdf/assets/wheel.obj"/>
+          <cylinder radius="0.46" length="0.3"/>
         </geometry>
       </collision>
       <visual>
